@@ -1,0 +1,87 @@
+﻿@page
+@model filmDunyasi.Pages.Admin.Film.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Film</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Film.CategoryID" class="control-label"></label>
+                <select asp-for="Film.CategoryID" class ="form-control" asp-items="ViewBag.CategoryID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Film.NativeID" class="control-label"></label>
+                <select asp-for="Film.NativeID" class ="form-control" asp-items="ViewBag.NativeID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Film.Name" class="control-label"></label>
+                <input asp-for="Film.Name" class="form-control" />
+                <span asp-validation-for="Film.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Film.ReleaseDate" class="control-label"></label>
+                <input asp-for="Film.ReleaseDate" class="form-control" />
+                <span asp-validation-for="Film.ReleaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Film.Duration" class="control-label"></label>
+                <input asp-for="Film.Duration" class="form-control" />
+                <span asp-validation-for="Film.Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Film.IMDBRating" class="control-label"></label>
+                <input asp-for="Film.IMDBRating" class="form-control" />
+                <span asp-validation-for="Film.IMDBRating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Film.Description" class="control-label"></label>
+                <input asp-for="Film.Description" class="form-control" />
+                <span asp-validation-for="Film.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Film.Banner" class="control-label"></label>
+                <input type="file" class="form-control" name="files" />
+                <span asp-validation-for="Film.Banner" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Film.Trailer" class="control-label"></label>
+                <input asp-for="Film.Trailer" class="form-control" />
+                <span asp-validation-for="Film.Trailer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Film.StartDate" class="control-label"></label>
+                <input asp-for="Film.StartDate" class="form-control" />
+                <span asp-validation-for="Film.StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Film.EndDate" class="control-label"></label>
+                <input asp-for="Film.EndDate" class="form-control" />
+                <span asp-validation-for="Film.EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Film.DirectorID" class="control-label"></label>
+                <select asp-for="Film.DirectorID" class ="form-control" asp-items="ViewBag.DirectorID"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

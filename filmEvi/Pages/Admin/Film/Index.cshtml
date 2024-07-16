@@ -1,0 +1,103 @@
+﻿@page
+@model filmDunyasi.Pages.Admin.Film.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Film[0].Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Film[0].Native)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Film[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Film[0].ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Film[0].Duration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Film[0].IMDBRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Film[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Film[0].Banner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Film[0].Trailer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Film[0].StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Film[0].EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Film[0].Director)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Film) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Native.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IMDBRating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Banner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trailer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Director.ID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
